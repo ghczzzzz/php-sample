@@ -1,5 +1,9 @@
-FROM daocloud.io/php:5.6-cli
+FROM akoeplinger/mono-aspnetvnext
 
-COPY . /app
-WORKDIR /app
-CMD [ "php", "./hello.php" ]
+WORKDIR ~/helloworld/src/helloworldweb
+
+RUN kpm restore
+
+EXPOSE 5000
+
+ENTRYPOINT ["k", "web"]
